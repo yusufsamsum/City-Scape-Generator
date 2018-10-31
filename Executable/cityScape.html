@@ -1,0 +1,66 @@
+<html>
+
+<script id = "vertex-shader" type = "x-shader/x-vertex">
+
+attribute vec4 vPosition;
+attribute vec4 vColor;
+
+varying vec4 fColor;
+
+void
+main()
+{
+	gl_Position = vPosition;
+	fColor = vColor;
+}
+
+</script>
+
+<script id = "fragment-shader" type = "x-shader/x-fragment">
+
+precision mediump float;
+
+varying vec4 fColor;
+void
+main()
+{
+	gl_FragColor = fColor;
+}
+</script>
+
+<script type="text/javascript" src="../Source/webgl-utils.js"></script>
+<script type="text/javascript" src="../Source/initShaders.js"></script>
+<script type="text/javascript" src="../Source/MV.js"></script>
+<script type="text/javascript" src="cityScape.js"></script>
+
+<body>
+<!-- determining canvas size -->
+<div>
+<canvas id = "cloudSunCanvas" width="1000" height="600">
+</canvas>
+</div>
+<!-- Sliders and Buttons -->
+<div>
+Number of Houses: 0 <input id = "houseSlider" type = "range" min = "0" max = "4" step = "1" value = "0" /> 4 
+</div>
+<div> 
+Number of Storeys: 0 <input id = "storeySlider" type = "range" min = "0" max = "5" step = "1" value = "0" /> 5
+
+<button id = "Button2">Generate a Scene</button>
+
+<button id = "Button1">Draw a Cloud!!</button>
+
+</div>
+<div>
+
+<button id = "saveButton">Download the Scene</button>
+
+<input type="file" id="loadButton" name="loadFile" >
+
+</div>
+
+
+
+</body>
+
+</html>
